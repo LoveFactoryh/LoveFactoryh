@@ -1,23 +1,25 @@
 package Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
 
+import java.time.LocalDateTime;
 
 
 @RestController
 public class CController {
 
-    @GetMapping("/")
-    public String controller(){
+        @GetMapping("/")
+        public String dates(Model model) {
 
-        return "Greetings from Spring Boot!";
-
-
-
-
-
+            model.addAttribute("tstamp", LocalDateTime.now());
+            return "dates";
         }
-
     }
+
+
+
+
 
