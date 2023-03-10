@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Love Factory</title>
 </head>
 <body>
+<h1>LoveFactoryh</h1>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
 
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>User</th>
+
+        </tr>
+        <tbody>
+    <tr th:each="consultation: ${consultation}">
+        <td th:text="${consultation.id}"></td>
+        <td th:text="${consultation.title}"></td>
+        <td th:text="${consultation.description}"></td>
+        <td th:text="${consultation.user}"></td>
+        <td>
+            <button class="btnEdit">Edit</button>
+            <button class="btnDelete">Delete</button>
+        </td>
+    </tr>
+    </tbody>
+        </thead>
+    </table>
+
+
+</div>
 </body>
 </html>
