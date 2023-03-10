@@ -10,7 +10,7 @@
 <h1>LoveFactoryh</h1>
 <div class="container">
     <table class="table">
-        <a class="btn btn-primary">New Consult</a>
+        <a th:href="@{/form}" class="btn btn-primary">New Consult</a>
         <thead>
         <tr>
             <th>Id</th>
@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-    <tr th:each="consultation: ${consultation}">
+    <tr th:each="consultation: ${consulting}">
         <td th:text="${consultation.id}"></td>
         <td th:text="${consultation.title}"></td>
         <td th:text="${consultation.description}"></td>
