@@ -47,6 +47,12 @@ public class CController {
      return "form";
     }
 
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable int id, Model model) {
+        iConsultation.deleteById(id);
+        return "redirect:/";
+    }
+
 
 
 }
