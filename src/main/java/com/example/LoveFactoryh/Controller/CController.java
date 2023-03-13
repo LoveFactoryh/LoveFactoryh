@@ -15,7 +15,6 @@ import java.util.List;
 
 
 @Controller
-
 public class CController {
 @Autowired
 
@@ -24,8 +23,7 @@ public class CController {
 //    public  List<CConsultation> list(){
 //        return (List<CConsultation>)iConsultation.findAll();
 //    }
-
-@GetMapping("/")
+ @GetMapping("/")
     public String list (Model model){
        //List<CConsultation> consultations = (List<CConsultation>)iConsultation.findAll();
        model.addAttribute("consultation", iConsultation.findAll());
