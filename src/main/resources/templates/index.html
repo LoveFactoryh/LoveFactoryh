@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-    <tr th:each="consultation: ${consulting}">
+    <tr th:each="consultation: ${consultation}">
         <td th:text="${consultation.id}"></td>
         <td th:text="${consultation.title}"></td>
         <td th:text="${consultation.description}"></td>
@@ -29,7 +29,7 @@
         <td>
             <a class="btn btn-warning">Edit</a>
             <a class="btn btn-danger">Delete</a>
-            <a class="btn btn-dark">Save</a>
+
         </td>
     </tr>
     </tbody>
