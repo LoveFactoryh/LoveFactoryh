@@ -13,34 +13,29 @@
     </header>
     <div class="container">
         <div>
-            <form th:object=${consultation}>
-                <div>
-                    <div>
-                        <h3>
-
-                        </h3>
+            <form th:action="@{/save}" th:object="${consultation}">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Consulting</h3>
                     </div>
-                    <div>
-                        <div>
-                            <label></label>
-                            <label></label>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input th:field="*{id}" type="text" class="form-control"/>
                         </div>
                         <div>
-                            <label></label>
-                            <input/>
+                            <label>TITLE</label>
+                            <input th:field="*{title}" type="text" class="form-control"/>
                         </div>
                         <div>
-                            <label></label>
-                            <input/>
+                            <label>DESCRIPTION</label>
+                            <input th:field="*{description}" type="text" class="form-control"/>
                         </div>
                         <div>
-                            <label></label>
-                            <input/>
+                            <label>USER</label>
+                            <input th:field="*{user}" type="text" class="form-control"/>
                         </div>
-
-                    </div>
-                    <div class="card-footer">
-                        <input/>
+                        <input type="submit" value="save" class="btn btn-dark"/>
                     </div>
                 </div>
             </form>
