@@ -15,7 +15,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping
-
 public class CController {
 @Autowired
 
@@ -30,6 +29,16 @@ public class CController {
        List<CConsultation> consultations = (List<CConsultation>)iConsultation.findAll();
        model.addAttribute("consultation", consultations);
        return "index";
+    }
+    @GetMapping("/form")
+    public String add(Model model){
+    model.addAttribute("consulting", new CConsultation());
+    return "form";
+    }
+
+   public String save(CConsultation cons, Model model){
+    iConsultation.save(cons);
+    return "redirect:/listar";
     }
 }
 
