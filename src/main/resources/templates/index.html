@@ -27,7 +27,7 @@
         <td th:text="${consultation.description}"></td>
         <td th:text="${consultation.user}"></td>
         <td>
-            <a class="btn btn-warning">Edit</a>
+            <a th:href="@{/update/} + ${consultation.id}" class="btn btn-warning">Update</a>
             <a class="btn btn-danger">Delete</a>
 
         </td>
