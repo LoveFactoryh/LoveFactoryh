@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IConsultation extends CrudRepository <CConsultation, Integer> {
+
+
+
 }
