@@ -1,0 +1,77 @@
+*{
+    left: 0;
+    right: 0;
+}
+body {
+    background-color:#EC929F ;
+    font-family: 'Jost', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+input:focus, textarea:focus {
+  outline: none;
+}
+.form-id{
+    display: none;
+}
+.logo{
+    height: 10vh;
+}
+.title{
+    color: #FFEDEF;
+    font-size: 4vh;
+
+}
+#subtitle{
+    color: #FFEDEF;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 2vh;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: #FFEDEF;
+    width: 90%;
+}
+label {
+    color: #EC929F;
+
+}
+.form-control {
+    font-size: large;
+    width: 70vw;
+    border-color: #EC929F;
+    border-style: solid;
+    background-color: #FFEDEF ;
+
+}
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+ }
+
+.label {
+margin-bottom: 0.5vh;
+margin-top: 2vh;
+}
+.btnSave{
+    cursor: pointer;
+    background-color: #EC929F;
+    margin:2vh;
+    border: none;
+    border-radius: 15px;
+    color:#FFEDEF;
+    padding: 0.7vh 2vh 0.7vh 2vh;
+}
+.card-header h3{
+    color: #EC929F;
+}
+
+
+
+
