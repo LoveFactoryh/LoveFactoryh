@@ -21,19 +21,19 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>ID</label>
-                            <input th:field="*{id}" type="text" class="form-control"/>
+                            <input th:field="*{id}" type="text" class="form-control" />
                         </div>
                         <div>
                             <label>TITLE</label>
-                            <input th:field="*{title}" type="text" class="form-control"/>
+                            <input th:field="*{title}" type="text" class="form-control" required="required"/>
                         </div>
                         <div>
                             <label>DESCRIPTION</label>
-                            <input th:field="*{description}" type="text" class="form-control"/>
+                            <input th:field="*{description}" type="text" class="form-control" required="required"/>
                         </div>
                         <div>
                             <label>USER</label>
-                            <input th:field="*{user}" type="text" class="form-control"/>
+                            <input th:field="*{user}" type="text" class="form-control" required="required"/>
                         </div>
                         <input type="submit" value="save" class="btn btn-dark"/>
                     </div>
