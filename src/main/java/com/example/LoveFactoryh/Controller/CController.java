@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,10 +42,15 @@ public class CController {
     return "redirect:/";
     }
     @GetMapping("/update/{id}")
-    public String update(@PathVariable("id") int id, Model model){
-     iConsultation.findById(id);
+    public String update(@PathVariable int id, Model model){
+
      model.addAttribute("consulting", iConsultation.findById(id));
      return "form";
+    }
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") int id, Model model){
+        iConsultation.deleteById(id);
+        return "redirect:/";
     }
 
 
