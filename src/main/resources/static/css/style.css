@@ -1,0 +1,92 @@
+*{
+    left: 0;
+    right: 0;
+}
+body{
+    background-color:#EC929F ;
+    font-family: 'Jost', sans-serif;
+    text-align: center;
+
+}
+
+.logo{
+    height: 10vh;
+}
+.title{
+    color: #FFEDEF;
+    font-size: 4vh;
+
+}
+#subtitle{
+    color: #FFEDEF;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 2vh;
+}
+
+.div-consultation{
+    text-align: center;
+
+
+
+}
+.consultation{
+
+    display: flex;
+    flex-direction: column;
+    background-color: #FFEDEF;
+    padding: 3vh;
+
+}
+
+.new-btn{
+    color: #FFEDEF;
+    font-size: 4vh;
+    padding: 3vw;
+    border-radius: 50%;
+
+
+
+}
+.motive, .description, .user{
+    color: #EC929F;
+}
+
+.motive{
+    text-align: left;
+    font-size: 3vh;
+}
+
+.description{
+    font-size: 3vh;
+}
+
+.div-user{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+
+#user {
+    font-size: 2vh;
+    color: #EC929F;
+    margin-left: 1vh;
+}
+
+
+.div-icons{
+    display: flex;
+    justify-content:flex-end;
+    width: 70%;
+
+
+}
+
+.deletebtn, .editbtn, .user{
+    height: 4vh;
+}
+
+.deletebtn, .editbtn{
+    margin-left: 1vh;
+}
