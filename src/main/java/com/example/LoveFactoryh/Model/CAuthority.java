@@ -2,8 +2,14 @@ package com.example.LoveFactoryh.Model;
 
 
 import jakarta.persistence.*;
-import utils.EAuthorityName;
+import com.example.LoveFactoryh.utils.EAuthorityName;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity (name = "authorities")
 
 public class CAuthority {

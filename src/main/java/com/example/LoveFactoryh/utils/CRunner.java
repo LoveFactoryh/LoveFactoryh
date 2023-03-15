@@ -1,11 +1,11 @@
-package utils;
+package com.example.LoveFactoryh.utils;
 
 import com.example.LoveFactoryh.Model.CAuthority;
 import com.example.LoveFactoryh.Model.CUser;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import repositories.IAuthorityRepository;
-import repositories.IUserRepository;
+import com.example.LoveFactoryh.repositories.IAuthorityRepository;
+import com.example.LoveFactoryh.repositories.IUserRepository;
 
 import java.util.List;
 @Component

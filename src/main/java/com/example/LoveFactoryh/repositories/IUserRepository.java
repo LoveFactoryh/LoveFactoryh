@@ -1,4 +1,4 @@
-package repositories;
+package com.example.LoveFactoryh.repositories;
 
 import com.example.LoveFactoryh.Model.CUser;
 import org.springframework.data.jpa.repository.JpaRepository;
