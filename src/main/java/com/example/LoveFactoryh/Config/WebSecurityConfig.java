@@ -1,29 +1,43 @@
 package com.example.LoveFactoryh.Config;
 
-import com.example.LoveFactoryh.utils.EAuthorityName;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class WebSecurityConfig {
 
-    //@Bean
     @Bean
-    public SecurityFilterChain securityFilterChain (HttpSecurity http) throws  Exception{
-        return http
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
                 .httpBasic()
-                .and().authorizeHttpRequests()
-                .requestMatchers("/form").hasRole(EAuthorityName.ADMIN.name())
-                .and().build();
+                .and().authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/form").hasAnyAuthority("USER", "ADMIN")
+                        .requestMatchers("/delete/**").hasAuthority("ADMIN")
+                        .requestMatchers("/update/**").hasAnyAuthority("USER", "ADMIN")
+                        .anyRequest().permitAll()
+                );
+        return http.build();
     }
+
+//    @Bean
+//    public LogoutConfigurer<HttpSecurity> logoutConfigurer(HttpSecurity http) throws Exception {
+//        return http
+//                .logout(logout -> logout
+//                        .logoutUrl("/logout")
+//                        .logoutSuccessUrl("/my/index")
+//                        .logoutSuccessHandler(logoutSuccessHandler)
+//                        .invalidateHttpSession(true)
+//                        .addLogoutHandler(logoutHandler)
+//                        .deleteCookies(cookieNamesToClear)
+//                ).logout();
+//    }
+
+
 //    @Bean
 //    public UserDetailsService userDetailsService() {
 //
