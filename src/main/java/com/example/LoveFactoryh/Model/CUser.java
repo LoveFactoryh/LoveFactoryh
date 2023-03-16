@@ -5,7 +5,13 @@ import jakarta.persistence.*;
 import org.springframework.security.core.userdetails.User;
 
 import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity (name = "users")
 public class CUser {
 
