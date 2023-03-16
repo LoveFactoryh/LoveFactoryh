@@ -1,5 +1,4 @@
 package com.example.LoveFactoryh.services;
-
 import com.example.LoveFactoryh.Security.CSecurityUser;
 import com.example.LoveFactoryh.repositories.IUserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
