@@ -2,13 +2,12 @@ package com.example.LoveFactoryh.Model;
 
 
 import jakarta.persistence.*;
-import org.springframework.security.core.userdetails.User;
-
-import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.userdetails.User;
 
+import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,10 +27,11 @@ public class CUser {
     private String username;
     private String password;
 
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_authority",
         joinColumns = @JoinColumn(name ="user_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
-    private List<CAuthority> authorities;
+        private List<CAuthority> authorities;
 
 }
