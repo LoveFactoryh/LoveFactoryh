@@ -32,10 +32,10 @@ public class CRunner implements CommandLineRunner {
         }
         if(this.userRepository.count()==0){
             this.userRepository.saveAll(List.of(
-                    new CUser("Mordkan",new BCryptPasswordEncoder().encode("Mordkan123"),this.authorityRepository.findByName(EAuthorityName.ADMIN).get()),
-                    new CUser("Celia", new BCryptPasswordEncoder().encode("No123"),List.of(this.authorityRepository.findByName(EAuthorityName.ADMIN).get())),
-                    new CUser("Bubblewaffle",new BCryptPasswordEncoder().encode("33"),List.of(this.authorityRepository.findByName(EAuthorityName.USER).get())),
-                    new CUser("Ashur", new BCryptPasswordEncoder().encode("Laquetuquieras123"),List.of(this.authorityRepository.findByName(EAuthorityName.USER).get()))
+                    new CUser("Mordkan",new BCryptPasswordEncoder().encode("Mordkan123"),EAuthorityName.ADMIN),
+                    new CUser("Celia", new BCryptPasswordEncoder().encode("No123"),EAuthorityName.ADMIN),
+                    new CUser("Bubblewaffle",new BCryptPasswordEncoder().encode("33"),EAuthorityName.USER),
+                    new CUser("Ashur", new BCryptPasswordEncoder().encode("Laquetuquieras123"),EAuthorityName.USER)
 
             ));
         }

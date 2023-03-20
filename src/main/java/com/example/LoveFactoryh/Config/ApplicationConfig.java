@@ -22,21 +22,11 @@ public class ApplicationConfig {
     private final IUserRepository userRepository;
 
     @Bean
-    public UserDetailsService userDetailsService(){
-       return new UserDetailsService() {
-           @Override
-           public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-               var optUser = userRepository.findByUsername(username);
-
-               if (optUser.isPresent()) {
-                   return new CSecurityUser(optUser.get());
-               }
-
-               throw new UsernameNotFoundException(("User not found: " + username));
-           }
-
-       };
+    public UserDetailsService userDetailsService() {
+        return username -> userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
+
 
     @Bean
     public AuthenticationProvider authenticationProvider() {

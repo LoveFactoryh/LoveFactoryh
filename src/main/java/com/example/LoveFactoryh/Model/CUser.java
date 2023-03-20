@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 @Builder
 @NoArgsConstructor
-@RequiredArgsConstructor
+
 @AllArgsConstructor
 @Entity
 @Table(name = "_user")
