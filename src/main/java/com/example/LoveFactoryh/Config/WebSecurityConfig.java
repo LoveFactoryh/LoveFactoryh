@@ -14,15 +14,26 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+
+                .csrf()
+                .disable()
                 .httpBasic()
                 .and().authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/form").hasAnyAuthority("USER", "ADMIN")
                         .requestMatchers("/delete/**").hasAuthority("ADMIN")
                         .requestMatchers("/update/**").hasAnyAuthority("USER", "ADMIN")
                         .anyRequest().permitAll()
-                );
+                )
+        .logout()
+                .logoutUrl("/logout")
+        .logoutSuccessUrl("/login")
+        .deleteCookies("JSESSIONID");
+
+
         return http.build();
     }
+
+
 
 //    @Bean
 //    public LogoutConfigurer<HttpSecurity> logoutConfigurer(HttpSecurity http) throws Exception {
