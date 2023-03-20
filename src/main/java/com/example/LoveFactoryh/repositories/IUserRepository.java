@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface IUserRepository extends JpaRepository<CUser, Long> {
+public interface IUserRepository extends JpaRepository<CUser, Integer> {
 
     Optional<CUser> findByUsername(String username) ;
 

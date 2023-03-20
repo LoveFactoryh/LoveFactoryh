@@ -1,15 +1,26 @@
 package com.example.LoveFactoryh.Config;
 
+import jakarta.servlet.Filter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
 public class WebSecurityConfig {
+
+    private final JwtAuthenticationFilter jwtAuthFilter;
+    private AuthenticationProvider authenticationProvider;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -17,18 +28,17 @@ public class WebSecurityConfig {
 
                 .csrf()
                 .disable()
-                .httpBasic()
-                .and().authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/form").hasAnyAuthority("USER", "ADMIN")
-                        .requestMatchers("/delete/**").hasAuthority("ADMIN")
-                        .requestMatchers("/update/**").hasAnyAuthority("USER", "ADMIN")
-                        .anyRequest().permitAll()
-                )
-        .logout()
-                .logoutUrl("/logout")
-        .logoutSuccessUrl("/login")
-        .deleteCookies("JSESSIONID");
-
+                .authorizeHttpRequests()
+                .requestMatchers("")
+                .permitAll()
+                .anyRequest()
+                .permitAll()
+                .and()
+                .sessionManagement( )
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -71,9 +81,6 @@ public class WebSecurityConfig {
 //
 //        return new InMemoryUserDetailsManager(christian, salah,celia,jordy);
 //    }
-@Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-}
+
 
 }
